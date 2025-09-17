@@ -1,0 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #00d4ff;
+  --primary-dark: #0099cc;
+  --secondary: #ff0080;
+  --accent: #00ff88;
+  --neon-blue: #00d4ff;
+  --neon-pink: #ff0080;
+  --neon-green: #00ff88;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --dark-bg: #0a0a0f;
+  --dark-surface: #1a1a2e;
+  --dark-card: #16213e;
+}
+
+[data-theme="dark"] {
+  --primary: #00d4ff;
+  --primary-dark: #0099cc;
+  --secondary: #ff0080;
+  --accent: #00ff88;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white leading-relaxed transition-all duration-300;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+    font-family: 'Orbitron', monospace;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply text-gray-300 leading-relaxed;
+  }
+
+  /* Futuristic Typography */
+  .futuristic-text {
+    font-family: 'Orbitron', monospace;
+    background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-pink) 50%, var(--neon-green) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  /* Glass Morphism Effects */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--neon-blue);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
+    transform: translateY(-5px);
+  }
+
+  /* Neon Effects */
+  .neon-border {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--dark-card), var(--dark-card)) padding-box,
+                linear-gradient(135deg, var(--neon-blue), var(--neon-pink)) border-box;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px var(--neon-blue),
+                0 0 40px var(--neon-blue),
+                0 0 60px var(--neon-blue);
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+
+  /* Holographic Cards */
+  .holographic {
+    position: relative;
+    background: linear-gradient(135deg, 
+      rgba(0, 212, 255, 0.1) 0%,
+      rgba(255, 0, 128, 0.1) 25%,
+      rgba(0, 255, 136, 0.1) 50%,
+      rgba(255, 0, 128, 0.1) 75%,
+      rgba(0, 212, 255, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: holographic-shift 4s ease-in-out infinite;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .holographic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .holographic:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s ease-in-out;
+  }
+
+  /* Animations */
+  @keyframes glow-pulse {
+    from {
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
+                   0 0 30px rgba(0, 212, 255, 0.3),
+                   0 0 40px rgba(0, 212, 255, 0.2);
+    }
+    to {
+      text-shadow: 0 0 30px rgba(0, 212, 255, 0.8),
+                   0 0 40px rgba(0, 212, 255, 0.5),
+                   0 0 50px rgba(0, 212, 255, 0.3);
+    }
+  }
+
+  @keyframes neon-pulse {
+    from {
+      box-shadow: 0 0 20px var(--neon-blue),
+                  0 0 30px var(--neon-blue),
+                  0 0 40px var(--neon-blue);
+    }
+    to {
+      box-shadow: 0 0 30px var(--neon-blue),
+                  0 0 40px var(--neon-blue),
+                  0 0 50px var(--neon-blue);
+    }
+  }
+
+  @keyframes holographic-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes matrix-rain {
+    0% { transform: translateY(-100vh); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+
+  /* Futuristic Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-green));
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn-secondary {
+    @apply glass-card text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:neon-border;
+  }
+
+  .card {
+    @apply glass-card rounded-xl p-6 transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply neon-border;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Futuristic Navigation */
+  .nav-link {
+    @apply relative text-gray-300 hover:text-white transition-all duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Article Cards */
+  .article-card {
+    @apply holographic rounded-xl p-6 transition-all duration-500;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .article-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+  }
+
+  /* Loading Animation */
+  .loading-dots {
+    display: inline-block;
+  }
+
+  .loading-dots::after {
+    content: '';
+    animation: loading-dots 1.5s infinite;
+  }
+
+  @keyframes loading-dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+  }
+
+  /* Matrix Background Effect */
+  .matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.1;
+  }
+
+  .matrix-char {
+    position: absolute;
+    color: var(--neon-green);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    animation: matrix-rain 3s linear infinite;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .futuristic-text {
+    font-size: 2rem;
+  }
+  
+  .glass-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .glass, .glass-card, .holographic {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  
+  .futuristic-text {
+    color: black !important;
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+  }
+}
+@layer utilities {
+  .bg-dark-bg {
+    background-color: var(--dark-bg);
+  }
+  .bg-dark-surface {
+    background-color: var(--dark-surface);
+  }
+  .bg-dark-card {
+    background-color: var(--dark-card);
+  }
+}
