@@ -18,7 +18,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="glass border-t border-white/10 text-gray-300">
+    <footer className="glass-card border-t border-white/10 text-gray-300 backdrop-blur-md">
       <div className="container-custom">
         <div className="py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

@@ -96,7 +96,7 @@ export default function AdminPage() {
   if (!status) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="glass-card p-8 rounded-xl">
+        <div className="glass-card p-8 rounded-xl backdrop-blur-md">
           <div className="animate-spin w-8 h-8 border-2 border-blue-400 border-t-transparent rounded-full mx-auto"></div>
           <p className="text-gray-300 mt-4 text-center">Loading automation status...</p>
         </div>
@@ -119,7 +119,7 @@ export default function AdminPage() {
           </div>
 
           {/* Status Card */}
-          <div className="glass-card p-8 rounded-xl mb-8">
+          <div className="glass-card p-8 rounded-xl mb-8 backdrop-blur-md">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-semibold text-white flex items-center">
                 <Zap className="w-6 h-6 mr-2 text-blue-400" />

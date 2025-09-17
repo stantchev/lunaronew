@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header className="glass sticky top-0 z-50 border-b border-white/10">
+    <header className="glass-card sticky top-0 z-50 border-b border-white/10 backdrop-blur-md">
       <nav className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -63,7 +63,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10 glass">
+          <div className="md:hidden py-4 border-t border-white/10 glass-card backdrop-blur-md">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link

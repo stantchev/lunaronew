@@ -13,7 +13,7 @@ interface ArticleCardProps {
 
 const ArticleCard = ({ title, excerpt, author, date, category, slug, readTime }: ArticleCardProps) => {
   return (
-    <article className="article-card h-full flex flex-col group">
+    <article className="glass-card rounded-xl p-6 h-full flex flex-col group transition-all duration-500 hover:scale-105 hover:border-blue-500/50">
       <div className="flex items-center justify-between mb-4">
         <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-400 text-sm font-medium rounded-full border border-blue-500/30">
           <Zap className="w-3 h-3 mr-1" />

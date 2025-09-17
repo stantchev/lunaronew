@@ -148,17 +148,17 @@ export default async function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 glass"></div>
+      <section className="py-20 relative bg-gradient-to-r from-blue-900/30 to-purple-900/30">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
         <div className="container-custom text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 futuristic-text">
+            <h2 className="text-3xl font-bold text-white mb-6 futuristic-text relative z-10">
               Stay Informed, Stay Ahead
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-200 mb-8 relative z-10">
               Join our community and be the first to access new articles, insights, and perspectives that shape the future.
             </p>
-            <Link href="/contact" className="btn-primary inline-flex items-center neon-glow">
+            <Link href="/contact" className="btn-primary inline-flex items-center neon-glow relative z-10">
               Get in Touch
               <ArrowRight size={20} className="ml-2" />
             </Link>
